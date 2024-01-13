@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # Generate a tgz archive containing the content from web_static
-from fabric.api import *
+from fabric.api import local
 from datetime import datetime
 
 
