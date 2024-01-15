@@ -4,6 +4,7 @@ from fabric.api import local, runs_once
 from datetime import datetime
 import os
 
+
 @runs_once
 def do_pack():
     """Archive function"""
@@ -11,7 +12,7 @@ def do_pack():
         if not os.path.isdir("versions"):
             os.mkdir("versions")
         now = datetime.now()
-        file_name = "webstatic{}{}{}{}{}{}.tgz".format(
+        file_name = "webstatic_{}{}{}{}{}{}.tgz".format(
             now.year, now.month, now.day,
             now.hour, now.minute, now.second
         )
@@ -24,3 +25,4 @@ def do_pack():
     except Exception as e:
         print("Error: {}".format(e))
         return None
+
