@@ -12,7 +12,7 @@ def do_pack():
         if not os.path.isdir("versions"):
             os.mkdir("versions")
         now = datetime.now()
-        file_name = "webstatic_{}{}{}{}{}{}.tgz".format(
+        file_name = "web_static_{}{}{}{}{}{}.tgz".format(
             now.year, now.month, now.day,
             now.hour, now.minute, now.second
         )
