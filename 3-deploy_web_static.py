@@ -8,6 +8,7 @@ env.user = 'ubuntu'
 env.hosts = ['52.3.245.134', '52.87.154.222']
 
 
+@runs_once
 def do_pack():
     """Archive function
 
@@ -62,9 +63,7 @@ def do_deploy(archive_path):
 
 def deploy():
     """Archives and deploys to web servers"""
-    try:
-        new_archive = do_pack()
-        stat = do_deploy(new_archive)
-        return stat
-    except Exception as e:
+    new_archive = do_pack()
+    if new_archive is None:
         return False
+    return do_deploy(new_archive)
