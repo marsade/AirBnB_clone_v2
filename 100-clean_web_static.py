@@ -24,11 +24,16 @@ def do_clean(number=0):
     foldersr = [folders for folders in folders_remote if folders.startswith(
         "web_static")]
     sorted_foldesr = sorted(foldersr, reverse=True)
-    delete_filesr = sorted_foldesr[number:]
 
     # Create deletion list for local files
     sorted_filesl = sorted(files_local, key=os.path.getmtime, reverse=True)
-    delete_filesl = sorted_filesl[number:]
+
+    if number <= 0:
+        delete_filesl = sorted_filesl[number + 1:]
+        delete_filesr = sorted_foldesr[number+ 1:]
+    else:
+        delete_filesr = sorted_foldesr[number:]
+        delete_filesl = sorted_filesl[number:]
 
     # Delete files
     for file in delete_filesl:
