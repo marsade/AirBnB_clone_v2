@@ -61,6 +61,7 @@ def do_deploy(archive_path):
 
 
 def deploy():
+    """Archives and deploys to web servers"""
     try:
         new_archive = do_pack()
         stat = do_deploy(new_archive)
